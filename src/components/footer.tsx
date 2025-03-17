@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import * as React from "react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -12,13 +12,16 @@ export default function Footer() {
     toggleDarkMode: "text-white size-8 transition-all",
   };
 
-  // TODO: optimise this to include "system"
-  const [darkMode, setDarkMode] = useState(true);
-  const { setTheme, theme } = useTheme();
+  const [loaded, setLoaded] = React.useState(false);
+  const { setTheme, theme, resolvedTheme } = useTheme();
+
+  React.useEffect(() => {
+    setLoaded(true);
+    setTheme(resolvedTheme === "light" ? "light" : "dark");
+  }, [setTheme, resolvedTheme]);
 
   const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
   };
 
   return (
@@ -47,17 +50,22 @@ export default function Footer() {
             <FaInstagram className={styles.icon} />
           </a>
           {/* TODO: change hover background colour and size */}
-          <Button
-            onClick={() => toggleTheme()}
-            variant="link"
-            className={`${styles.icon} absolute right-0 mr-4 hover:bg-gray-700 hover:rounded-full hover:shadow-xl`}
-          >
-            {darkMode ? (
-              <Moon className={styles.toggleDarkMode + " text-white"} />
-            ) : (
-              <Sun className={styles.toggleDarkMode} />
-            )}
-          </Button>
+          {loaded && (
+            <div className="absolute flex right-0 mr-4 items-center">
+              theme: {theme}
+              <Button
+                onClick={() => toggleTheme()}
+                variant="ghost"
+                className={`${styles.icon} hover:bg-gray-800 hover:rounded-full hover:shadow-xl cursor-pointer`}
+              >
+                {theme === "light" ? (
+                  <Moon className={styles.toggleDarkMode + " text-white"} />
+                ) : (
+                  <Sun className={styles.toggleDarkMode} />
+                )}
+              </Button>
+            </div>
+          )}
         </div>
         <a
           className="hover:underline hover:underline-offset-4"
