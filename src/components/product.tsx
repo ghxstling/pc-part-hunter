@@ -6,21 +6,27 @@ import Link from "next/link";
 
 const styles = {
   button:
-    "w-60 h-72 bg-neutral-200 border-neutral-400 hover:bg-neutral-300 cursor-pointer",
+    "bg-neutral-100 border-neutral-400 hover:bg-neutral-200 cursor-pointer",
   content: "flex flex-col items-center gap-6",
 };
 
 export default function Product({
   children,
   link,
+  className,
   ...props
 }: {
   children: React.ReactNode;
   link: string;
+  className: string;
 }) {
   return (
     <Link href={link}>
-      <Button variant={"outline"} className={styles.button} {...props}>
+      <Button
+        variant={"outline"}
+        className={`${styles.button} ${className}`}
+        {...props}
+      >
         <div className={styles.content}>{children}</div>
       </Button>
     </Link>
