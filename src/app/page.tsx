@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Tektur } from "next/font/google";
-import { Button } from "@/components/ui/button";
+import Product from "@/components/product";
 import { BsCpu } from "react-icons/bs";
 import { PiGraphicsCard } from "react-icons/pi";
 
@@ -13,11 +13,8 @@ const tektur = Tektur({
 
 export default function Home() {
   const styles = {
-    button:
-      "size-60 text-center justify-center items-center text-lg tracking-wide font-semibold ",
+    buttonHeading: "text-2xl font-semibold tracking-wide",
     icon: "size-32",
-    buttonHeading: "text-2xl font-semibold",
-    buttonContent: "flex flex-col items-center gap-6",
   };
 
   return (
@@ -35,19 +32,14 @@ export default function Home() {
       </header>
 
       <div className="grid grid-cols-2 gap-12">
-        {/* TODO: change outline and background colour in light mode */}
-        <Button variant={"outline"} className={styles.button}>
-          <div className={styles.buttonContent}>
-            <h2 className={styles.buttonHeading}>CPUs</h2>
-            <BsCpu className={styles.icon} />
-          </div>
-        </Button>
-        <Button variant={"outline"} className={styles.button}>
-          <div className={styles.buttonContent}>
-            <h2 className={styles.buttonHeading}>Graphics Cards</h2>
-            <PiGraphicsCard className={styles.icon} />
-          </div>
-        </Button>
+        <Product>
+          <h2 className={styles.buttonHeading}>CPUs</h2>
+          <BsCpu className={styles.icon} />
+        </Product>
+        <Product>
+          <h2 className={styles.buttonHeading}>Graphics Cards</h2>
+          <PiGraphicsCard className={styles.icon} />
+        </Product>
       </div>
     </main>
   );
