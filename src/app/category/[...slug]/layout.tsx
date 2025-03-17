@@ -4,7 +4,11 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { Card } from "@/components/ui/card";
 import { CPU } from "@/data/sidebar-content";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function CategoryLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <section>
       <SidebarProvider>
