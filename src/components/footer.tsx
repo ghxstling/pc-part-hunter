@@ -25,9 +25,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="fixed bottom-0 w-full py-6 bg-indigo-800 text-white">
-      <div className="flex flex-col gap-4 items-center">
-        <div className="flex flex-row gap-4">
+    <footer className="w-full h-[7.5rem] max-h-[10vh] bg-indigo-900 text-white">
+      <div className="flex flex-col items-center justify-center h-full gap-2">
+        <div className="grid grid-flow-col gap-4">
           <a
             href="https://github.com/ghxstling/"
             target="_blank"
@@ -49,14 +49,12 @@ export default function Footer() {
           >
             <FaInstagram className={styles.icon} />
           </a>
-          {/* TODO: change hover background colour and size */}
           {loaded && (
             <div className="absolute flex right-0 mr-4 items-center">
-              theme: {theme}
               <Button
                 onClick={() => toggleTheme()}
-                variant="ghost"
-                className={`${styles.icon} hover:bg-gray-800 hover:rounded-full hover:shadow-xl cursor-pointer`}
+                variant="default"
+                className={`size-10 bg-transparent hover:bg-indigo-700 rounded-[100%] cursor-pointer`}
               >
                 {theme === "light" ? (
                   <Moon className={styles.toggleDarkMode + " text-white"} />
@@ -68,7 +66,7 @@ export default function Footer() {
           )}
         </div>
         <a
-          className="hover:underline hover:underline-offset-4"
+          className="hover:underline hover:underline-offset-2"
           href="https://www.ghxstling.dev/"
           target="_blank"
           rel="noopener noreferrer"
