@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PC Part Hunter",
-  description: "Hunt for your next upgrade!",
+  description: "Hunt for your next PC upgrade.",
 };
 
 export default function RootLayout({
@@ -38,8 +39,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main>
-            {children}
-            <Footer />
+            <div className="flex flex-col min-h-screen">
+              <div className="my-auto space-y-[15vh]">
+                <Header />
+                {children}
+              </div>
+              <Footer />
+            </div>
           </main>
         </ThemeProvider>
       </body>
