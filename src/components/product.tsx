@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const styles = {
   button:
-    "bg-neutral-100 border-neutral-400 hover:bg-neutral-200 cursor-pointer",
+    "w-fit h-fit bg-neutral-100 border-neutral-400 hover:bg-neutral-200 cursor-pointer",
   content: "flex flex-col items-center gap-6",
 };
 
@@ -18,7 +18,7 @@ export default function Product({
 }: {
   children: React.ReactNode;
   link: string;
-  className: string;
+  className?: string;
 }) {
   return (
     <Link href={link}>
