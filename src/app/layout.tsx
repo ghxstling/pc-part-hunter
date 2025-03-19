@@ -22,11 +22,14 @@ export const metadata: Metadata = {
   description: "Hunt for your next PC upgrade.",
 };
 
+type PageType = "home" | "category";
+const page: PageType = "home";
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -40,8 +43,8 @@ export default function RootLayout({
         >
           <main>
             <div className="flex flex-col min-h-screen">
-              <div className="my-auto space-y-[15vh]">
-                <Header />
+              <div className="my-auto">
+                <Header page={page} />
                 {children}
               </div>
               <Footer />
