@@ -1,4 +1,4 @@
-import { fonts } from "@/app/fonts";
+import { tektur } from "@/app/fonts";
 import * as React from "react";
 
 export default function Header({ page = "home" }: { page?: string }) {
@@ -6,9 +6,9 @@ export default function Header({ page = "home" }: { page?: string }) {
     return <header className="w-full h-16 p-10 bg-blue-500">dsadsad</header>;
   } else {
     return (
-      <div className="flex flex-col gap-4 text-center min-h-fit">
+      <div className="flex flex-col gap-4 text-center min-h-fit mb-[15vh]">
         <h1
-          className={`${fonts.tektur.className} text-6xl font-semibold tracking-wide`}
+          className={`${tektur.className} text-6xl font-semibold tracking-wide`}
         >
           PC PART HUNTER
         </h1>

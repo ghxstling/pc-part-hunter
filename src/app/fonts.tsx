@@ -1,10 +1,16 @@
-import { Tektur } from "next/font/google";
+import { Tektur, Geist, Geist_Mono } from "next/font/google";
 
-const tektur = Tektur({
+export const tektur = Tektur({
   variable: "--font-tektur",
   subsets: ["latin"],
 });
 
-export const fonts = {
-  tektur,
-};
+export const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+export const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
