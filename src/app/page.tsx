@@ -4,6 +4,7 @@ import React from "react";
 import Product from "@/components/product";
 import { BsCpu } from "react-icons/bs";
 import { PiGraphicsCard } from "react-icons/pi";
+import Header from "@/components/header";
 
 export default function Home() {
   const styles = {
@@ -14,6 +15,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col my-auto items-center justify-center">
+      <Header />
       <div className="grid grid-cols-2 gap-12">
         <Product link={"/category/cpu"} className={styles.button}>
           <h2 className={styles.buttonHeading}>CPUs</h2>

@@ -30,10 +30,7 @@ export default function RootLayout({
         >
           <main>
             <div className="flex flex-col min-h-screen">
-              <div className="my-auto">
-                <Header />
-                {children}
-              </div>
+              {children}
               <Footer />
             </div>
           </main>
