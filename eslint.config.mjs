@@ -11,6 +11,6 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
-    ignorePatterns: [".next/"],
+    ignores: [".next/"],
   },
 ];
