@@ -7,21 +7,20 @@ import { Card } from "@/components/ui/card";
 import { CPU } from "@/data/sidebar-content";
 import ProductHeader from "@/components/product-header";
 
-// main layout for category pages
 export default function CategoryLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section className="h-full">
+    <section className="m-auto bg-green-900">
       <ProductHeader />
       <SidebarProvider>
-        <div className="flex flex-row gap-10 items-center justify-center mx-auto bg-red-900 h-full">
+        <div className="grid grid-flow-col gap-10 items-center justify-center">
           <Card className="h-[60rem] overflow-x-hidden overflow-y-auto">
-            <AppSidebar className="w-80" data={CPU} />
+            <AppSidebar className="w-80 h-full" data={CPU} />
           </Card>
-          <div className="space-y-12">{children}</div>
+          <div className="grid gap-2">{children}</div>
         </div>
       </SidebarProvider>
     </section>
