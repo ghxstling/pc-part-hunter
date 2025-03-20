@@ -131,7 +131,7 @@ export const GPU: SidebarContentData = {
   name: "Graphics Cards",
   navMain: [
     {
-      title: "GPU Family",
+      title: "GPU Generation",
       items: [
         {
           title: "NVIDIA RTX 3000 Series",
